@@ -136,54 +136,90 @@ module DE10_Nano_HDMI_TX(
 //  REG/WIRE declarations
 //=======================================================
 wire				reset_n;
-wire				pll_1200k;
-reg	[12:0]	counter_1200k;
-reg				en_150;
-wire				vpg_mode_change;
-wire	[3:0]		vpg_mode;
-wire 			   AUD_CTRL_CLK;
+//wire				pll_1200k;
+//reg	[12:0]	counter_1200k;
+//reg				en_150;
+//wire				vpg_mode_change;
+//wire	[3:0]		vpg_mode;
+//wire 			   AUD_CTRL_CLK;
 //Video Pattern Generator
-wire	[3:0]		vpg_disp_mode;
+//wire	[3:0]		vpg_disp_mode;
 wire				vpg_pclk;
-wire				vpg_de, vpg_hs, vpg_vs;
-wire	[23:0]	vpg_data;
+//wire				vpg_de, vpg_hs, vpg_vs;
+//wire	[23:0]	vpg_data;
 
 //=======================================================
 //  Structural coding
 //=======================================================
-assign LED[3:0] = vpg_mode;
+//assign LED[3:0] = vpg_mode;
 //assign reset_n = 1'b1;
-assign LED[7] = counter_1200k[12];
+//assign LED[7] = counter_1200k[12];
 //system clock
-sys_pll u_sys_pll (
-	.refclk(FPGA_CLK1_50),
-	.rst(!KEY[0]),
-	.outclk_0(pll_1200k),		// 1.2M Hz
-	.outclk_1(AUD_CTRL_CLK),	// 1.536M Hz
-	.locked(reset_n) );
+//sys_pll u_sys_pll (
+//	.refclk(FPGA_CLK1_50),
+//	.rst(!KEY[0]),
+//	.outclk_0(pll_1200k),		// 1.2M Hz
+//	.outclk_1(AUD_CTRL_CLK),	// 1.536M Hz
+//	.locked(reset_n) );
+assign reset_n = KEY[0];
 
-//video pattern resolution select
-vpg_mode u_vpg_mode (
-	.reset_n(reset_n),
-	.clk(pll_1200k),
-	.clk_en(en_150),
-	.mode_button(KEY[1]),
-	.vpg_mode_change(vpg_mode_change),
-	.vpg_mode(vpg_mode) );
+////video pattern resolution select
+//vpg_mode u_vpg_mode (
+//	.reset_n(reset_n),
+//	.clk(pll_1200k),
+//	.clk_en(en_150),
+//	.mode_button(KEY[1]),
+//	.vpg_mode_change(vpg_mode_change),
+//	.vpg_mode(vpg_mode) );
+
+//assign vpg_mode = 1;
+//assign vpg_mode_change = 0;
+
+wire        gen_clk_locked;
+assign HDMI_TX_CLK = vpg_pclk;
 
 //pattern generator
-vpg u_vpg (
-	.clk_50(FPGA_CLK2_50),
-	.reset_n(reset_n),
-	.mode(vpg_mode),
-	.mode_change(vpg_mode_change),
-	.vpg_pclk(HDMI_TX_CLK),
-	.vpg_de(HDMI_TX_DE),
-	.vpg_hs(HDMI_TX_HS),
-	.vpg_vs(HDMI_TX_VS),
-	.vpg_r(HDMI_TX_D[23:16]),
-	.vpg_g(HDMI_TX_D[15:8]),
-	.vpg_b(HDMI_TX_D[7:0]) );
+//vpg u_vpg (
+//	.clk_50(FPGA_CLK2_50),
+//	.reset_n(reset_n),
+//	.mode(vpg_mode),
+//	.mode_change(vpg_mode_change),
+//	.vpg_pclk(HDMI_TX_CLK),
+//	.vpg_de(HDMI_TX_DE),
+//	.vpg_hs(HDMI_TX_HS),
+//	.vpg_vs(HDMI_TX_VS),
+//	.vpg_r(HDMI_TX_D[23:16]),
+//	.vpg_g(HDMI_TX_D[15:8]),
+//	.vpg_b(HDMI_TX_D[7:0]) );
+	
+pll u_pll (
+	.refclk(FPGA_CLK2_50),           
+	.rst(!reset_n),              
+	.outclk_0(vpg_pclk), 
+	.locked(gen_clk_locked),     
+	);
+	
+//vga_generator u_vga_generator (                                    
+//	.clk(vpg_pclk),                
+//	.reset_n(gen_clk_locked),                                                
+//	.vga_hs(HDMI_TX_HS),
+//	.vga_vs(HDMI_TX_VS),           
+//	.vga_de(HDMI_TX_DE),
+//	.vga_r(HDMI_TX_D[23:16]),
+//	.vga_g(HDMI_TX_D[15:8]),
+//	.vga_b(HDMI_TX_D[7:0])
+//	);
+
+HDMI_Generator u_HDMI_Generator (                                    
+	.clk(vpg_pclk),                
+	.reset_n(gen_clk_locked),                                                
+	.hdmi_hs(HDMI_TX_HS),
+	.hdmi_vs(HDMI_TX_VS),           
+	.hdmi_de(HDMI_TX_DE),
+	.hdmi_r(HDMI_TX_D[23:16]),
+	.hdmi_g(HDMI_TX_D[15:8]),
+	.hdmi_b(HDMI_TX_D[7:0])
+	);
 
 //HDMI I2C
 I2C_HDMI_Config u_I2C_HDMI_Config (
@@ -194,28 +230,28 @@ I2C_HDMI_Config u_I2C_HDMI_Config (
 	.HDMI_TX_INT(HDMI_TX_INT)
 	 );
 
-	//Audio
-AUDIO_IF u_AVG(
-	.clk(AUD_CTRL_CLK),
-	.reset_n(SW[0]),
-	.sclk(HDMI_SCLK),
-	.lrclk(HDMI_LRCLK),
-	.i2s(HDMI_I2S)
-);
+//	//Audio
+//AUDIO_IF u_AVG(
+//	.clk(AUD_CTRL_CLK),
+//	.reset_n(SW[0]),
+//	.sclk(HDMI_SCLK),
+//	.lrclk(HDMI_LRCLK),
+//	.i2s(HDMI_I2S)
+//);
 
-always@(posedge pll_1200k or negedge reset_n)
-begin
-	if (!reset_n)
-	begin
-		counter_1200k <= 13'b0;
-		en_150 <= 1'b0;				//frequency divider
-	end
-	else
-	begin
-		counter_1200k <= counter_1200k + 13'b1;
-		en_150 <= &counter_1200k;
-	end
-end
+//always@(posedge pll_1200k or negedge reset_n)
+//begin
+//	if (!reset_n)
+//	begin
+//		counter_1200k <= 13'b0;
+//		en_150 <= 1'b0;				//frequency divider
+//	end
+//	else
+//	begin
+//		counter_1200k <= counter_1200k + 13'b1;
+//		en_150 <= &counter_1200k;
+//	end
+//end
 
 
 endmodule

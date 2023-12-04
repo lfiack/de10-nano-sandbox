@@ -1,5 +1,5 @@
 IP Upgrade report for DE10_Nano_HDMI_TX
-Fri Dec  1 11:39:36 2023
+Mon Dec  4 14:34:07 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -36,7 +36,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; IP Upgrade Summary                                                            ;
 +------------------------------+------------------------------------------------+
-; IP Components Upgrade Status ; Passed - Fri Dec  1 11:39:36 2023              ;
+; IP Components Upgrade Status ; Passed - Mon Dec  4 14:34:07 2023              ;
 ; Quartus Prime Version        ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                ; DE10_Nano_HDMI_TX                              ;
 ; Top-level Entity Name        ; DE10_Nano_HDMI_TX                              ;
@@ -70,8 +70,8 @@ Info (11131): Completed upgrading IP component altera_pll with file "pll/pll.v"
 Info (23030): Evaluation of Tcl script /opt/intelFPGA_lite/22.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 595 megabytes
-    Info: Processing ended: Fri Dec  1 11:39:36 2023
-    Info: Elapsed time: 00:00:52
-    Info: Total CPU time (on all processors): 00:01:38
+    Info: Processing ended: Mon Dec  4 14:34:08 2023
+    Info: Elapsed time: 00:00:54
+    Info: Total CPU time (on all processors): 00:01:40
 
 
