@@ -210,15 +210,15 @@ pll u_pll (
 //	.vga_b(HDMI_TX_D[7:0])
 //	);
 
-HDMI_Generator u_HDMI_Generator (                                    
-	.clk(vpg_pclk),                
-	.reset_n(gen_clk_locked),                                                
-	.hdmi_hs(HDMI_TX_HS),
-	.hdmi_vs(HDMI_TX_VS),           
-	.hdmi_de(HDMI_TX_DE),
-	.hdmi_r(HDMI_TX_D[23:16]),
-	.hdmi_g(HDMI_TX_D[15:8]),
-	.hdmi_b(HDMI_TX_D[7:0])
+hdmi_generator u_hdmi_generator (                                    
+	.i_clk(vpg_pclk),                
+	.i_reset_n(gen_clk_locked),                                                
+	.o_hdmi_hs(HDMI_TX_HS),
+	.o_hdmi_vs(HDMI_TX_VS),           
+	.o_hdmi_de(HDMI_TX_DE),
+//	.hdmi_r(HDMI_TX_D[23:16]),
+//	.hdmi_g(HDMI_TX_D[15:8]),
+//	.hdmi_b(HDMI_TX_D[7:0])
 	);
 
 //HDMI I2C

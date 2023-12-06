@@ -484,6 +484,9 @@ set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name VHDL_FILE DE10_Nano_HDMI_TX.vhd
+set_global_assignment -name VHDL_FILE dpram.vhd
+set_global_assignment -name VHDL_FILE hdmi_generator.vhd
 set_global_assignment -name VERILOG_FILE vpg_source/vpg_mode.v
 set_global_assignment -name VERILOG_FILE vpg_source/vpg.v
 set_global_assignment -name SOURCE_FILE vpg_source/vpg.h
@@ -491,12 +494,9 @@ set_global_assignment -name VERILOG_FILE vpg_source/vga_generator.v
 set_global_assignment -name VERILOG_FILE vpg_source/pll_controller.v
 set_global_assignment -name VERILOG_FILE I2C_HDMI_Config.v
 set_global_assignment -name VERILOG_FILE I2C_Controller.v
-set_global_assignment -name VERILOG_FILE DE10_Nano_HDMI_TX.v
 set_global_assignment -name VERILOG_FILE AUDIO_IF.v
-set_global_assignment -name SDC_FILE DE10_Nano_HDMI_TX.sdc
 set_global_assignment -name QIP_FILE pll/sys_pll.qip
 set_global_assignment -name QIP_FILE pll/pll_reconfig.qip
 set_global_assignment -name QIP_FILE pll/pll.qip
 set_global_assignment -name VERILOG_FILE I2C_WRITE_WDATA.v
-set_global_assignment -name VHDL_FILE HDMI_Generator.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
