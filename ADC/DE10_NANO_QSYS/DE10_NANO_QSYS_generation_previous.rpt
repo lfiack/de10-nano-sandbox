@@ -1,0 +1,189 @@
+Info: Starting: Create simulation model
+Info: qsys-generate /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading ADC/DE10_NANO_QSYS.qsys
+Progress: Reading input file
+Progress: Adding adc_ltc2308 [adc_ltc2308 1.1]
+Progress: Parameterizing module adc_ltc2308
+Progress: Adding clk_50 [clock_source 22.1]
+Progress: Parameterizing module clk_50
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 22.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding nios2_qsys [altera_nios2_gen2 22.1]
+Progress: Parameterizing module nios2_qsys
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pll_sys [altera_pll 22.1]
+Progress: Parameterizing module pll_sys
+Progress: Adding sw [altera_avalon_pio 22.1]
+Progress: Parameterizing module sw
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 22.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: DE10_NANO_QSYS.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: DE10_NANO_QSYS.pll_sys: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: DE10_NANO_QSYS.pll_sys: Able to implement PLL with user settings
+Info: DE10_NANO_QSYS.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE10_NANO_QSYS.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: DE10_NANO_QSYS.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: DE10_NANO_QSYS: Generating DE10_NANO_QSYS "DE10_NANO_QSYS" for SIM_VERILOG
+Error: adc_ltc2308: adc_ltc2308 does not support generation for Verilog Simulation. Generation is available for: Quartus Synthesis.
+Error: Generation stopped, 10 or more modules remaining
+Info: DE10_NANO_QSYS: Done "DE10_NANO_QSYS" with 11 modules, 1 files
+Error: qsys-generate failed with exit code 1: 2 Errors, 0 Warnings
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/DE10_NANO_QSYS.spd --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/DE10_NANO_QSYS.spd --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for XCELIUM simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ directory:
+Info: 	xcelium/cds.lib
+Info: 	xcelium/hdl.var
+Info: 	xcelium/xcelium_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for MODELSIM simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for RIVIERA simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: Generating the following file(s) for VCS simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS.qsys --block-symbol-file --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading ADC/DE10_NANO_QSYS.qsys
+Progress: Reading input file
+Progress: Adding adc_ltc2308 [adc_ltc2308 1.1]
+Progress: Parameterizing module adc_ltc2308
+Progress: Adding clk_50 [clock_source 22.1]
+Progress: Parameterizing module clk_50
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 22.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding nios2_qsys [altera_nios2_gen2 22.1]
+Progress: Parameterizing module nios2_qsys
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pll_sys [altera_pll 22.1]
+Progress: Parameterizing module pll_sys
+Progress: Adding sw [altera_avalon_pio 22.1]
+Progress: Parameterizing module sw
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 22.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: DE10_NANO_QSYS.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: DE10_NANO_QSYS.pll_sys: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: DE10_NANO_QSYS.pll_sys: Able to implement PLL with user settings
+Info: DE10_NANO_QSYS.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE10_NANO_QSYS.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: DE10_NANO_QSYS.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS.qsys --synthesis=VERILOG --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis --family="Cyclone V" --part=5CSEBA6U23I7
+Progress: Loading ADC/DE10_NANO_QSYS.qsys
+Progress: Reading input file
+Progress: Adding adc_ltc2308 [adc_ltc2308 1.1]
+Progress: Parameterizing module adc_ltc2308
+Progress: Adding clk_50 [clock_source 22.1]
+Progress: Parameterizing module clk_50
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 22.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding nios2_qsys [altera_nios2_gen2 22.1]
+Progress: Parameterizing module nios2_qsys
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pll_sys [altera_pll 22.1]
+Progress: Parameterizing module pll_sys
+Progress: Adding sw [altera_avalon_pio 22.1]
+Progress: Parameterizing module sw
+Progress: Adding sysid_qsys [altera_avalon_sysid_qsys 22.1]
+Progress: Parameterizing module sysid_qsys
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: DE10_NANO_QSYS.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: DE10_NANO_QSYS.pll_sys: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: DE10_NANO_QSYS.pll_sys: Able to implement PLL with user settings
+Info: DE10_NANO_QSYS.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: DE10_NANO_QSYS.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: DE10_NANO_QSYS.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: DE10_NANO_QSYS: Generating DE10_NANO_QSYS "DE10_NANO_QSYS" for QUARTUS_SYNTH
+Info: adc_ltc2308: "DE10_NANO_QSYS" instantiated adc_ltc2308 "adc_ltc2308"
+Info: jtag_uart: Starting RTL generation for module 'DE10_NANO_QSYS_jtag_uart'
+Info: jtag_uart:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=DE10_NANO_QSYS_jtag_uart --dir=/tmp/alt9698_8866923125230172418.dir/0004_jtag_uart_gen/ --quartus_dir=/opt/intelFPGA_lite/22.1std/quartus --verilog --config=/tmp/alt9698_8866923125230172418.dir/0004_jtag_uart_gen//DE10_NANO_QSYS_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'DE10_NANO_QSYS_jtag_uart'
+Info: jtag_uart: "DE10_NANO_QSYS" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: nios2_qsys: "DE10_NANO_QSYS" instantiated altera_nios2_gen2 "nios2_qsys"
+Info: onchip_memory2: Starting RTL generation for module 'DE10_NANO_QSYS_onchip_memory2'
+Info: onchip_memory2:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=DE10_NANO_QSYS_onchip_memory2 --dir=/tmp/alt9698_8866923125230172418.dir/0005_onchip_memory2_gen/ --quartus_dir=/opt/intelFPGA_lite/22.1std/quartus --verilog --config=/tmp/alt9698_8866923125230172418.dir/0005_onchip_memory2_gen//DE10_NANO_QSYS_onchip_memory2_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2: Done RTL generation for module 'DE10_NANO_QSYS_onchip_memory2'
+Info: onchip_memory2: "DE10_NANO_QSYS" instantiated altera_avalon_onchip_memory2 "onchip_memory2"
+Info: pll_sys: "DE10_NANO_QSYS" instantiated altera_pll "pll_sys"
+Info: sw: Starting RTL generation for module 'DE10_NANO_QSYS_sw'
+Info: sw:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE10_NANO_QSYS_sw --dir=/tmp/alt9698_8866923125230172418.dir/0007_sw_gen/ --quartus_dir=/opt/intelFPGA_lite/22.1std/quartus --verilog --config=/tmp/alt9698_8866923125230172418.dir/0007_sw_gen//DE10_NANO_QSYS_sw_component_configuration.pl  --do_build_sim=0  ]
+Info: sw: Done RTL generation for module 'DE10_NANO_QSYS_sw'
+Info: sw: "DE10_NANO_QSYS" instantiated altera_avalon_pio "sw"
+Info: sysid_qsys: "DE10_NANO_QSYS" instantiated altera_avalon_sysid_qsys "sysid_qsys"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "DE10_NANO_QSYS" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "DE10_NANO_QSYS" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "DE10_NANO_QSYS" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'DE10_NANO_QSYS_nios2_qsys_cpu'
+Info: cpu:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64//perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64//perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=DE10_NANO_QSYS_nios2_qsys_cpu --dir=/tmp/alt9698_8866923125230172418.dir/0011_cpu_gen/ --quartus_bindir=/opt/intelFPGA_lite/22.1std/quartus/linux64/ --verilog --config=/tmp/alt9698_8866923125230172418.dir/0011_cpu_gen//DE10_NANO_QSYS_nios2_qsys_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2023.12.07 08:49:38 (*) Starting Nios II generation
+Info: cpu: # 2023.12.07 08:49:38 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2023.12.07 08:49:38 (*)   Creating all objects for CPU
+Info: cpu: # 2023.12.07 08:49:38 (*)     Testbench
+Info: cpu: # 2023.12.07 08:49:38 (*)     Instruction decoding
+Info: cpu: # 2023.12.07 08:49:38 (*)       Instruction fields
+Info: cpu: # 2023.12.07 08:49:38 (*)       Instruction decodes
+Info: cpu: # 2023.12.07 08:49:39 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2023.12.07 08:49:39 (*)       Instruction controls
+Info: cpu: # 2023.12.07 08:49:39 (*)     Pipeline frontend
+Info: cpu: # 2023.12.07 08:49:39 (*)     Pipeline backend
+Info: cpu: # 2023.12.07 08:49:40 (*)   Generating RTL from CPU objects
+Info: cpu: # 2023.12.07 08:49:40 (*)   Creating plain-text RTL
+Info: cpu: # 2023.12.07 08:49:40 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'DE10_NANO_QSYS_nios2_qsys_cpu'
+Info: cpu: "nios2_qsys" instantiated altera_nios2_gen2_unit "cpu"
+Info: nios2_qsys_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_qsys_data_master_translator"
+Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: nios2_qsys_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios2_qsys_data_master_agent"
+Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: nios2_qsys_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "nios2_qsys_data_master_limiter"
+Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: DE10_NANO_QSYS: Done "DE10_NANO_QSYS" with 32 modules, 56 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

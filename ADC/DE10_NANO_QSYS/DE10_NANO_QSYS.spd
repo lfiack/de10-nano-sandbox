@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/DE10_NANO_QSYS.v" type="VERILOG" />
+ <topLevel name="DE10_NANO_QSYS" />
+ <deviceFamily name="cyclonev" />
+ <modelMap
+   controllerPath="DE10_NANO_QSYS.onchip_memory2"
+   modelPath="DE10_NANO_QSYS.onchip_memory2" />
+</simPackage>

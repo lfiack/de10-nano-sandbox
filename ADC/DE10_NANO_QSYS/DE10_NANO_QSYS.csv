@@ -1,0 +1,27 @@
+# system info DE10_NANO_QSYS on 2023.12.07.08:49:33
+system_info:
+name,value
+DEVICE,5CSEBA6U23I7
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1701935370
+#
+#
+# Files generated for DE10_NANO_QSYS on 2023.12.07.08:49:33
+files:
+filepath,kind,attributes,module,is_top
+simulation/DE10_NANO_QSYS.v,VERILOG,,DE10_NANO_QSYS,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+DE10_NANO_QSYS.adc_ltc2308,DE10_NANO_QSYS_adc_ltc2308
+DE10_NANO_QSYS.jtag_uart,DE10_NANO_QSYS_jtag_uart
+DE10_NANO_QSYS.nios2_qsys,DE10_NANO_QSYS_nios2_qsys
+DE10_NANO_QSYS.onchip_memory2,DE10_NANO_QSYS_onchip_memory2
+DE10_NANO_QSYS.pll_sys,DE10_NANO_QSYS_pll_sys
+DE10_NANO_QSYS.sw,DE10_NANO_QSYS_sw
+DE10_NANO_QSYS.sysid_qsys,DE10_NANO_QSYS_sysid_qsys
+DE10_NANO_QSYS.mm_interconnect_0,DE10_NANO_QSYS_mm_interconnect_0
+DE10_NANO_QSYS.irq_mapper,DE10_NANO_QSYS_irq_mapper
+DE10_NANO_QSYS.rst_controller,altera_reset_controller
+DE10_NANO_QSYS.rst_controller_001,altera_reset_controller

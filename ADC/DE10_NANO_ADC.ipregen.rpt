@@ -1,0 +1,263 @@
+IP Upgrade report for DE10_NANO_ADC
+Thu Dec  7 08:49:41 2023
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Failed Upgrade IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; IP Upgrade Summary                                                            ;
++------------------------------+------------------------------------------------+
+; IP Components Upgrade Status ; Passed - Thu Dec  7 08:49:41 2023              ;
+; Quartus Prime Version        ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                ; DE10_NANO_ADC                                  ;
+; Top-level Entity Name        ; DE10_NANO_ADC                                  ;
+; Family                       ; Cyclone V                                      ;
++------------------------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Failed Upgrade IP Components                                                                                                                                                                    ;
++----------------+----------------+---------+---------------------------------------------+----------------------+-----------------+--------------------------------------------------------------+
+; Entity Name    ; Component Name ; Version ; Original Source File                        ; Generation File Path ; New Source File ; Message                                                      ;
++----------------+----------------+---------+---------------------------------------------+----------------------+-----------------+--------------------------------------------------------------+
+; DE10_NANO_QSYS ; Qsys           ; 16.0    ; DE10_NANO_QSYS/synthesis/DE10_NANO_QSYS.qip ; DE10_NANO_QSYS.qsys  ;                 ; Error upgrading Platform Designer file "DE10_NANO_QSYS.qsys" ;
++----------------+----------------+---------+---------------------------------------------+----------------------+-----------------+--------------------------------------------------------------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "DE10_NANO_QSYS.qsys" to "DE10_NANO_QSYS.BAK.qsys"
+Info (11902): Backing up file "DE10_NANO_QSYS/synthesis/DE10_NANO_QSYS.v" to "DE10_NANO_QSYS.BAK.v"
+Info (11837): Started upgrading IP component Qsys with file "DE10_NANO_QSYS.qsys"
+Info: 2023.12.07.08:49:24 Info: Starting to upgrade the IP cores in the Platform Designer system
+Info: 2023.12.07.08:49:24 Info: Upgrading from core type Nios II (Classic) Processor with version 16.0 to core type Nios II Processor with version 22.1
+Info: 2023.12.07.08:49:24 Info: Migration Successful
+Info: 2023.12.07.08:49:24 Info: Finished upgrading the ip cores
+Info: 2023.12.07.08:49:30 Info: Saving generation log to /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS
+Info: 2023.12.07.08:49:30 Info: Starting: Create simulation model
+Info: 2023.12.07.08:49:30 Info: Loading ADC
+Info: 2023.12.07.08:49:30 Info: Reading input file
+Info: 2023.12.07.08:49:30 Info: Adding adc_ltc2308 [adc_ltc2308 1.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module adc_ltc2308
+Info: 2023.12.07.08:49:30 Info: Adding clk_50 [clock_source 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module clk_50
+Info: 2023.12.07.08:49:30 Info: Adding jtag_uart [altera_avalon_jtag_uart 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module jtag_uart
+Info: 2023.12.07.08:49:30 Info: Adding nios2_qsys [altera_nios2_gen2 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module nios2_qsys
+Info: 2023.12.07.08:49:30 Info: Adding onchip_memory2 [altera_avalon_onchip_memory2 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module onchip_memory2
+Info: 2023.12.07.08:49:30 Info: Adding pll_sys [altera_pll 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module pll_sys
+Info: 2023.12.07.08:49:30 Info: Adding sw [altera_avalon_pio 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module sw
+Info: 2023.12.07.08:49:30 Info: Adding sysid_qsys [altera_avalon_sysid_qsys 22.1]
+Info: 2023.12.07.08:49:30 Info: Parameterizing module sysid_qsys
+Info: 2023.12.07.08:49:30 Info: Building connections
+Info: 2023.12.07.08:49:30 Info: Parameterizing connections
+Info: 2023.12.07.08:49:30 Info: Validating
+Info: 2023.12.07.08:49:30 Info: Done reading input file
+Info: 2023.12.07.08:49:30 Info: DE10_NANO_QSYS.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: 2023.12.07.08:49:30 Info: DE10_NANO_QSYS.pll_sys: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: 2023.12.07.08:49:30 Info: DE10_NANO_QSYS.pll_sys: Able to implement PLL with user settings
+Info: 2023.12.07.08:49:30 Info: DE10_NANO_QSYS.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: 2023.12.07.08:49:30 Info: DE10_NANO_QSYS.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: 2023.12.07.08:49:30 Info: DE10_NANO_QSYS.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: 2023.12.07.08:49:31 Info: DE10_NANO_QSYS: Generating DE10_NANO_QSYS "DE10_NANO_QSYS" for SIM_VERILOG
+Error: 2023.12.07.08:49:33 Error: adc_ltc2308: adc_ltc2308 does not support generation for Verilog Simulation. Generation is available for: Quartus Synthesis.
+Error: 2023.12.07.08:49:33 Error: Generation stopped, 10 or more modules remaining
+Info: 2023.12.07.08:49:33 Info: DE10_NANO_QSYS: Done "DE10_NANO_QSYS" with 11 modules, 1 files
+Error: 2023.12.07.08:49:33 Error: qsys-generate failed with exit code 1: 2 Errors, 0 Warnings
+Info: 2023.12.07.08:49:33 Info: Finished: Create simulation model
+Info: 2023.12.07.08:49:33 Info: Starting: Create Modelsim Project.
+Info: 2023.12.07.08:49:33 Info: sim-script-gen --spd=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/DE10_NANO_QSYS.spd --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info: Doing: ip-make-simscript --spd=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/DE10_NANO_QSYS.spd --output-directory=/home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info: Generating the following file(s) for XCELIUM simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info:     xcelium
+Info: 2023.12.07.08:49:33 Info:     xcelium
+Info: 2023.12.07.08:49:33 Info:     xcelium
+Info: 2023.12.07.08:49:33 Info: Generating the following file(s) for VCSMX simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info:     synopsys/vcsmx
+Info: 2023.12.07.08:49:33 Info:     synopsys/vcsmx
+Info: 2023.12.07.08:49:33 Info: Generating the following file(s) for MODELSIM simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info:     mentor
+Info: 2023.12.07.08:49:33 Info: Generating the following file(s) for RIVIERA simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info:     aldec
+Info: 2023.12.07.08:49:33 Info: Generating the following file(s) for VCS simulator in /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info:     synopsys/vcs
+Info: 2023.12.07.08:49:33 Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/simulation
+Info: 2023.12.07.08:49:33 Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: 2023.12.07.08:49:33 Info: Finished: Create Modelsim Project.
+Info: 2023.12.07.08:49:33 Info: Starting: Create block symbol file (.bsf)
+Info: 2023.12.07.08:49:33 Info: Loading ADC
+Info: 2023.12.07.08:49:33 Info: Reading input file
+Info: 2023.12.07.08:49:33 Info: Adding adc_ltc2308 [adc_ltc2308 1.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module adc_ltc2308
+Info: 2023.12.07.08:49:33 Info: Adding clk_50 [clock_source 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module clk_50
+Info: 2023.12.07.08:49:33 Info: Adding jtag_uart [altera_avalon_jtag_uart 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module jtag_uart
+Info: 2023.12.07.08:49:33 Info: Adding nios2_qsys [altera_nios2_gen2 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module nios2_qsys
+Info: 2023.12.07.08:49:33 Info: Adding onchip_memory2 [altera_avalon_onchip_memory2 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module onchip_memory2
+Info: 2023.12.07.08:49:33 Info: Adding pll_sys [altera_pll 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module pll_sys
+Info: 2023.12.07.08:49:33 Info: Adding sw [altera_avalon_pio 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module sw
+Info: 2023.12.07.08:49:33 Info: Adding sysid_qsys [altera_avalon_sysid_qsys 22.1]
+Info: 2023.12.07.08:49:33 Info: Parameterizing module sysid_qsys
+Info: 2023.12.07.08:49:33 Info: Building connections
+Info: 2023.12.07.08:49:33 Info: Parameterizing connections
+Info: 2023.12.07.08:49:33 Info: Validating
+Info: 2023.12.07.08:49:34 Info: Done reading input file
+Info: 2023.12.07.08:49:34 Info: DE10_NANO_QSYS.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: 2023.12.07.08:49:34 Info: DE10_NANO_QSYS.pll_sys: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: 2023.12.07.08:49:34 Info: DE10_NANO_QSYS.pll_sys: Able to implement PLL with user settings
+Info: 2023.12.07.08:49:34 Info: DE10_NANO_QSYS.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: 2023.12.07.08:49:34 Info: DE10_NANO_QSYS.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: 2023.12.07.08:49:34 Info: DE10_NANO_QSYS.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: 2023.12.07.08:49:34 Info: qsys-generate succeeded.
+Info: 2023.12.07.08:49:34 Info: Finished: Create block symbol file (.bsf)
+Info: 2023.12.07.08:49:34 Info:
+Info: 2023.12.07.08:49:34 Info: Starting: Create HDL design files for synthesis
+Info: 2023.12.07.08:49:34 Info: Loading ADC
+Info: 2023.12.07.08:49:34 Info: Reading input file
+Info: 2023.12.07.08:49:34 Info: Adding adc_ltc2308 [adc_ltc2308 1.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module adc_ltc2308
+Info: 2023.12.07.08:49:34 Info: Adding clk_50 [clock_source 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module clk_50
+Info: 2023.12.07.08:49:34 Info: Adding jtag_uart [altera_avalon_jtag_uart 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module jtag_uart
+Info: 2023.12.07.08:49:34 Info: Adding nios2_qsys [altera_nios2_gen2 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module nios2_qsys
+Info: 2023.12.07.08:49:34 Info: Adding onchip_memory2 [altera_avalon_onchip_memory2 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module onchip_memory2
+Info: 2023.12.07.08:49:34 Info: Adding pll_sys [altera_pll 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module pll_sys
+Info: 2023.12.07.08:49:34 Info: Adding sw [altera_avalon_pio 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module sw
+Info: 2023.12.07.08:49:34 Info: Adding sysid_qsys [altera_avalon_sysid_qsys 22.1]
+Info: 2023.12.07.08:49:34 Info: Parameterizing module sysid_qsys
+Info: 2023.12.07.08:49:34 Info: Building connections
+Info: 2023.12.07.08:49:34 Info: Parameterizing connections
+Info: 2023.12.07.08:49:34 Info: Validating
+Info: 2023.12.07.08:49:35 Info: Done reading input file
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS.pll_sys: The legal reference clock frequency is 5.0 MHz..700.0 MHz
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS.pll_sys: Able to implement PLL with user settings
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS.sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS.sysid_qsys: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS.sysid_qsys: Time stamp will be automatically updated when this component is generated.
+Info: 2023.12.07.08:49:35 Info: DE10_NANO_QSYS: Generating DE10_NANO_QSYS "DE10_NANO_QSYS" for QUARTUS_SYNTH
+Info: 2023.12.07.08:49:36 Info: adc_ltc2308: "DE10_NANO_QSYS" instantiated adc_ltc2308 "adc_ltc2308"
+Info: 2023.12.07.08:49:36 Info: jtag_uart: Starting RTL generation for module 'DE10_NANO_QSYS_jtag_uart'
+Info: 2023.12.07.08:49:36 Info: jtag_uart:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=DE10_NANO_QSYS_jtag_uart --dir=/tmp/alt9698_8866923125230172418.dir/0004_jtag_uart_gen/ --quartus_dir=/opt/intelFPGA_lite/22.1std/quartus --verilog --config=/tmp/alt9698_8866923125230172418.dir/0004_jtag_uart_gen/
+Info: 2023.12.07.08:49:37 Info: jtag_uart: Done RTL generation for module 'DE10_NANO_QSYS_jtag_uart'
+Info: 2023.12.07.08:49:37 Info: jtag_uart: "DE10_NANO_QSYS" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: 2023.12.07.08:49:37 Info: nios2_qsys: "DE10_NANO_QSYS" instantiated altera_nios2_gen2 "nios2_qsys"
+Info: 2023.12.07.08:49:37 Info: onchip_memory2: Starting RTL generation for module 'DE10_NANO_QSYS_onchip_memory2'
+Info: 2023.12.07.08:49:37 Info: onchip_memory2:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=DE10_NANO_QSYS_onchip_memory2 --dir=/tmp/alt9698_8866923125230172418.dir/0005_onchip_memory2_gen/ --quartus_dir=/opt/intelFPGA_lite/22.1std/quartus --verilog --config=/tmp/alt9698_8866923125230172418.dir/0005_onchip_memory2_gen/
+Info: 2023.12.07.08:49:37 Info: onchip_memory2: Done RTL generation for module 'DE10_NANO_QSYS_onchip_memory2'
+Info: 2023.12.07.08:49:37 Info: onchip_memory2: "DE10_NANO_QSYS" instantiated altera_avalon_onchip_memory2 "onchip_memory2"
+Info: 2023.12.07.08:49:37 Info: pll_sys: "DE10_NANO_QSYS" instantiated altera_pll "pll_sys"
+Info: 2023.12.07.08:49:37 Info: sw: Starting RTL generation for module 'DE10_NANO_QSYS_sw'
+Info: 2023.12.07.08:49:37 Info: sw:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64/perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=DE10_NANO_QSYS_sw --dir=/tmp/alt9698_8866923125230172418.dir/0007_sw_gen/ --quartus_dir=/opt/intelFPGA_lite/22.1std/quartus --verilog --config=/tmp/alt9698_8866923125230172418.dir/0007_sw_gen/
+Info: 2023.12.07.08:49:37 Info: sw: Done RTL generation for module 'DE10_NANO_QSYS_sw'
+Info: 2023.12.07.08:49:37 Info: sw: "DE10_NANO_QSYS" instantiated altera_avalon_pio "sw"
+Info: 2023.12.07.08:49:37 Info: sysid_qsys: "DE10_NANO_QSYS" instantiated altera_avalon_sysid_qsys "sysid_qsys"
+Info: 2023.12.07.08:49:38 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: 2023.12.07.08:49:38 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: 2023.12.07.08:49:38 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: 2023.12.07.08:49:38 Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: 2023.12.07.08:49:38 Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: 2023.12.07.08:49:38 Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: 2023.12.07.08:49:38 Info: mm_interconnect_0: "DE10_NANO_QSYS" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: 2023.12.07.08:49:38 Info: irq_mapper: "DE10_NANO_QSYS" instantiated altera_irq_mapper "irq_mapper"
+Info: 2023.12.07.08:49:38 Info: rst_controller: "DE10_NANO_QSYS" instantiated altera_reset_controller "rst_controller"
+Info: 2023.12.07.08:49:38 Info: cpu: Starting RTL generation for module 'DE10_NANO_QSYS_nios2_qsys_cpu'
+Info: 2023.12.07.08:49:38 Info: cpu:   Generation command is [exec /opt/intelFPGA_lite/22.1std/quartus/linux64//perl/bin/perl -I /opt/intelFPGA_lite/22.1std/quartus/linux64//perl/lib -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin/europa -I /opt/intelFPGA_lite/22.1std/quartus/sopc_builder/bin -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- /opt/intelFPGA_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=DE10_NANO_QSYS_nios2_qsys_cpu --dir=/tmp/alt9698_8866923125230172418.dir/0011_cpu_gen/ --quartus_bindir=/opt/intelFPGA_lite/22.1std/quartus/linux64/ --verilog --config=/tmp/alt9698_8866923125230172418.dir/0011_cpu_gen/
+Info: 2023.12.07.08:49:40 Info: cpu: # 2023.12.07 08:49:38 (*) Starting Nios II generation
+Info: 2023.12.07.08:49:40 Info: cpu: # 2023.12.07 08:49:38 (*)   Elaborating CPU configuration settings
+Info: 2023.12.07.08:49:40 Info: cpu: # 2023.12.07 08:49:38 (*)   Creating all objects for CPU
+Info: 2023.12.07.08:49:40 Info: cpu: # 2023.12.07 08:49:38 (*)     Testbench
+Info: 2023.12.07.08:49:40 Info: cpu: # 2023.12.07 08:49:38 (*)     Instruction decoding
+Info: 2023.12.07.08:49:40 Info: cpu: # 2023.12.07 08:49:38 (*)       Instruction fields
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:38 (*)       Instruction decodes
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:39 (*)       Signals for RTL simulation waveforms
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:39 (*)       Instruction controls
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:39 (*)     Pipeline frontend
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:39 (*)     Pipeline backend
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:40 (*)   Generating RTL from CPU objects
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:40 (*)   Creating plain-text RTL
+Info: 2023.12.07.08:49:41 Info: cpu: # 2023.12.07 08:49:40 (*) Done Nios II generation
+Info: 2023.12.07.08:49:41 Info: cpu: Done RTL generation for module 'DE10_NANO_QSYS_nios2_qsys_cpu'
+Info: 2023.12.07.08:49:41 Info: cpu: "nios2_qsys" instantiated altera_nios2_gen2_unit "cpu"
+Info: 2023.12.07.08:49:41 Info: nios2_qsys_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_qsys_data_master_translator"
+Info: 2023.12.07.08:49:41 Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: 2023.12.07.08:49:41 Info: nios2_qsys_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios2_qsys_data_master_agent"
+Info: 2023.12.07.08:49:41 Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: 2023.12.07.08:49:41 Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: 2023.12.07.08:49:41 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: 2023.12.07.08:49:41 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: 2023.12.07.08:49:41 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: 2023.12.07.08:49:41 Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: 2023.12.07.08:49:41 Info: nios2_qsys_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "nios2_qsys_data_master_limiter"
+Info: 2023.12.07.08:49:41 Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules
+Info: 2023.12.07.08:49:41 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: 2023.12.07.08:49:41 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: 2023.12.07.08:49:41 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: 2023.12.07.08:49:41 Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: 2023.12.07.08:49:41 Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules
+Info: 2023.12.07.08:49:41 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: 2023.12.07.08:49:41 Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: 2023.12.07.08:49:41 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: 2023.12.07.08:49:41 Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules
+Info: 2023.12.07.08:49:41 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: 2023.12.07.08:49:41 Info: Reusing file /home/laurentf/Documents/ensea/de10-nano-sandbox/ADC/DE10_NANO_QSYS/synthesis/submodules
+Info: 2023.12.07.08:49:41 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: 2023.12.07.08:49:41 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: 2023.12.07.08:49:41 Info: DE10_NANO_QSYS: Done "DE10_NANO_QSYS" with 32 modules, 56 files
+Info: 2023.12.07.08:49:41 Info: qsys-generate succeeded.
+Info: 2023.12.07.08:49:41 Info: Finished: Create HDL design files for synthesis
+Info (11904): Restoring file "DE10_NANO_QSYS.BAK.qsys" to "DE10_NANO_QSYS.qsys"
+Error (14923): Error upgrading Platform Designer file "DE10_NANO_QSYS.qsys"
+Error (11890): Unable to automatically upgrade Platform Designer component. Please manually upgrade "DE10_NANO_QSYS.qsys" in Platform Designer
+Error (23031): Evaluation of Tcl script /opt/intelFPGA_lite/22.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl unsuccessful
+Error: Quartus Prime Shell was unsuccessful. 6 errors, 0 warnings
+    Error: Peak virtual memory: 595 megabytes
+    Error: Processing ended: Thu Dec  7 08:49:42 2023
+    Error: Elapsed time: 00:00:30
+    Error: Total CPU time (on all processors): 00:01:15
+
+
