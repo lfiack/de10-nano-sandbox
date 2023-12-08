@@ -1,8 +1,20 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst unsaved.clk_0 -pg 1 -lvl 1 -y 30
-preplace inst unsaved -pg 1 -lvl 1 -y 40 -regy -20
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)unsaved.reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)clk_0.clk_in,(SLAVE)unsaved.clk) 1 0 1 NJ
-levelinfo -pg 1 0 50 270
-levelinfo -hier unsaved 60 90 260
+preplace inst nios0_ip.intel_niosv_m_0.timer_module -pg 1
+preplace inst nios0_ip.intel_niosv_m_0 -pg 1 -lvl 3 -y 110
+preplace inst nios0_ip.jtag_uart_0 -pg 1 -lvl 4 -y 80
+preplace inst nios0_ip.intel_niosv_m_0.dbg_mod -pg 1
+preplace inst nios0_ip.intel_niosv_m_0.reset_bridge -pg 1
+preplace inst nios0_ip.sysid_qsys_0 -pg 1 -lvl 4 -y 260
+preplace inst nios0_ip.intel_niosv_m_0.clock_bridge -pg 1
+preplace inst nios0_ip.clk_50 -pg 1 -lvl 1 -y 80
+preplace inst nios0_ip.intel_niosv_m_0.hart -pg 1
+preplace inst nios0_ip -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst nios0_ip.onchip_memory2_0 -pg 1 -lvl 4 -y 180
+preplace netloc EXPORT<net_container>nios0_ip</net_container>(SLAVE)clk_50.clk_in,(SLAVE)nios0_ip.clk) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>nios0_ip</net_container>(SLAVE)onchip_memory2_0.clk1,(SLAVE)jtag_uart_0.clk,(SLAVE)intel_niosv_m_0.clk,(MASTER)clk_50.clk,(SLAVE)sysid_qsys_0.clk) 1 1 3 NJ 90 460 50 990
+preplace netloc INTERCONNECT<net_container>nios0_ip</net_container>(SLAVE)intel_niosv_m_0.dm_agent,(MASTER)intel_niosv_m_0.data_manager,(SLAVE)onchip_memory2_0.s1,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)sysid_qsys_0.control_slave,(SLAVE)intel_niosv_m_0.timer_sw_agent,(MASTER)intel_niosv_m_0.instruction_manager) 1 2 2 480 70 950
+preplace netloc FAN_OUT<net_container>nios0_ip</net_container>(SLAVE)intel_niosv_m_0.reset,(SLAVE)jtag_uart_0.reset,(SLAVE)sysid_qsys_0.reset,(SLAVE)onchip_memory2_0.reset1,(MASTER)clk_50.clk_reset) 1 1 3 NJ 110 440 30 970
+preplace netloc EXPORT<net_container>nios0_ip</net_container>(SLAVE)clk_50.clk_in_reset,(SLAVE)nios0_ip.reset) 1 0 1 NJ
+levelinfo -pg 1 0 50 1190
+levelinfo -hier nios0_ip 60 90 420 750 1040 1180
