@@ -70,10 +70,13 @@ architecture rtl of DE10_Nano_HDMI_TX is
 		);
 	end component;
 
+	constant logo_h_res : natural := 95;
+	constant logo_v_res : natural := 95;
+	
     constant h_res : natural := 720;
     constant v_res : natural := 480;
 
-    constant mem_size : natural := h_res*v_res;
+    constant mem_size : natural := logo_h_res*logo_h_res;
     constant data_width : natural := 8;
 	 
 	 signal clk_a : std_logic;
@@ -83,13 +86,15 @@ architecture rtl of DE10_Nano_HDMI_TX is
 	signal gen_clk_locked : std_logic;
 	
 	signal pixel_en : std_logic;
-   signal pixel_address : natural range 0 to (mem_size - 1);
+	signal pixel_address : natural range 0 to (mem_size-1);
 	
 	signal new_frame : std_logic;
 	signal dot_x_counter : natural range 0 to (h_res - 1);
 	signal dot_y_counter : natural range 0 to (v_res - 1);
 	signal x_counter : natural range 0 to (h_res - 1);
 	signal y_counter : natural range 0 to (v_res - 1);
+	signal logo_x_counter : natural range 0 to (logo_h_res -1);
+	signal logo_y_counter : natural range 0 to (logo_v_res -1);
 	
 	signal pixel : std_logic_vector(data_width-1 downto 0);
 	
@@ -110,10 +115,6 @@ begin
 	end process;
 	
 	LED(0) <= r_led;
-	
---	HDMI_TX_D(23 downto 16) <= pixel;
---	HDMI_TX_D(15 downto 8) <= pixel;
---	HDMI_TX_D(7 downto 0) <= pixel;
 
 	-- increment the dot at each new frame
 	process (vpg_pclk, gen_clk_locked)
@@ -124,27 +125,43 @@ begin
 		elsif (rising_edge(vpg_pclk)) then
 			if (new_frame = '1') then
 				-- x/y counter
-				if (dot_x_counter >= h_res - 1) then
+				if (dot_x_counter >= h_res - 96) then
 					dot_x_counter <= 0;
 					
-					if (dot_y_counter >= v_res -1) then
+					if (dot_y_counter >= v_res - 96) then
 						dot_y_counter <= 0;
 					else
-						dot_y_counter <= dot_y_counter + 16;
+						dot_y_counter <= dot_y_counter + 1;
 					end if;
 				else
-					dot_x_counter <= dot_x_counter + 8;
+					dot_x_counter <= dot_x_counter + 1;
 				end if;
 			end if;
 		end if;
 	end process;
+
+	process (x_counter, y_counter)
+	begin
+
+			if ((x_counter < 95) and (y_counter < 95)) then
+				pixel_address <= x_counter-dot_x_counter + (y_counter-dot_y_counter)*95;
+			else
+				pixel_address <= 0;
+			end if;
+	end process;
 	
-	HDMI_TX_D <= (others => '1') when 
-	(
-		((x_counter > dot_x_counter) and (x_counter < dot_x_counter + 16)) and
-		((y_counter > dot_y_counter) and (y_counter < dot_y_counter + 16))
-	)
-	else (others => '0');
+	process (pixel, x_counter, y_counter)
+	begin
+		if (((x_counter > dot_x_counter) and (x_counter < dot_x_counter + 95)) and ((y_counter > dot_y_counter) and (y_counter < dot_y_counter + 95))) then
+			if (pixel = x"3A") then
+				HDMI_TX_D <= x"A6184F";
+			else
+				HDMI_TX_D <= x"FFFFFF";
+			end if;
+		else
+			HDMI_TX_D <= (others => '0');
+		end if;
+	end process;
 	
 	pll0 : component pll 
 		port map (
@@ -162,30 +179,30 @@ begin
 			o_hdmi_vs => HDMI_TX_VS,
 			o_hdmi_de => HDMI_TX_DE,
 			o_pixel_en => open,
-			o_pixel_address => pixel_address,
+			o_pixel_address => open,
 			o_x_counter => x_counter,
 			o_y_counter => y_counter,
 			o_new_frame => new_frame
 		);
 		
---	dpram_0 : entity work.dpram
---		generic map (
---			mem_size => h_res*v_res,
---			data_width => 8
---		)
---		port map (
---			i_clk_a  => clk_a,
---			i_clk_b  => vpg_pclk,
---			i_data_a => (others => '0'),
---			i_data_b => (others => '0'),
---			i_addr_a => 0,
---			i_addr_b => pixel_address,
---			i_we_a   => '0',
---			i_we_b   => '0',
---
---			o_q_a    => open,
---			o_q_b    => pixel
---		);
+	dpram_0 : entity work.dpram
+		generic map (
+			mem_size => mem_size,
+			data_width => 8
+		)
+		port map (
+			i_clk_a  => clk_a,
+			i_clk_b  => vpg_pclk,
+			i_data_a => (others => '0'),
+			i_data_b => (others => '0'),
+			i_addr_a => 0,
+			i_addr_b => pixel_address,
+			i_we_a   => '0',
+			i_we_b   => '0',
+
+			o_q_a    => open,
+			o_q_b    => pixel
+		);
 	
 	I2C_HDMI_Config0 : component I2C_HDMI_Config 
 		port map (
