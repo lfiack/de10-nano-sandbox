@@ -5,8 +5,6 @@
 
 #define BUFFER_LENGTH 1024
 
-
-
 int main (int argc, char ** argv)
 {
     if (argc != 3)
@@ -76,7 +74,7 @@ int main (int argc, char ** argv)
     fprintf(outfile_fd, "entity dpram is\n");
     fprintf(outfile_fd, "    generic\n");
     fprintf(outfile_fd, "    (\n");
-    fprintf(outfile_fd, "        mem_size    : natural := 720 * 480;\n");
+    fprintf(outfile_fd, "        mem_size    : natural := %d * %d;\n", h_res, v_res);
     fprintf(outfile_fd, "        data_width  : natural := 8\n");
     fprintf(outfile_fd, "    );\n");
     fprintf(outfile_fd, "   port \n");
@@ -84,14 +82,14 @@ int main (int argc, char ** argv)
     fprintf(outfile_fd, "        i_clk_a        : in std_logic;\n");
     fprintf(outfile_fd, "        i_clk_b        : in std_logic;\n");
     fprintf(outfile_fd, "\n");
-    fprintf(outfile_fd, "       i_data_a    : in std_logic_vector(data_width-1 downto 0);\n");
-    fprintf(outfile_fd, "       i_data_b    : in std_logic_vector(data_width-1 downto 0);\n");
-    fprintf(outfile_fd, "       i_addr_a    : in natural range 0 to mem_size-1;\n");
-    fprintf(outfile_fd, "       i_addr_b    : in natural range 0 to mem_size-1;\n");
-    fprintf(outfile_fd, "       i_we_a      : in std_logic := '1';\n");
-    fprintf(outfile_fd, "       i_we_b      : in std_logic := '1';\n");
-    fprintf(outfile_fd, "       o_q_a       : out std_logic_vector(data_width-1 downto 0);\n");
-    fprintf(outfile_fd, "       o_q_b       : out std_logic_vector(data_width-1 downto 0)\n");
+    fprintf(outfile_fd, "        i_data_a    : in std_logic_vector(data_width-1 downto 0);\n");
+    fprintf(outfile_fd, "        i_data_b    : in std_logic_vector(data_width-1 downto 0);\n");
+    fprintf(outfile_fd, "        i_addr_a    : in natural range 0 to mem_size-1;\n");
+    fprintf(outfile_fd, "        i_addr_b    : in natural range 0 to mem_size-1;\n");
+    fprintf(outfile_fd, "        i_we_a      : in std_logic := '1';\n");
+    fprintf(outfile_fd, "        i_we_b      : in std_logic := '1';\n");
+    fprintf(outfile_fd, "        o_q_a       : out std_logic_vector(data_width-1 downto 0);\n");
+    fprintf(outfile_fd, "        o_q_b       : out std_logic_vector(data_width-1 downto 0)\n");
     fprintf(outfile_fd, "   );\n");
     fprintf(outfile_fd, "   \n");
     fprintf(outfile_fd, "end dpram;\n");
