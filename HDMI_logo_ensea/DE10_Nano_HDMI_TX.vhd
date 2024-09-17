@@ -96,6 +96,9 @@ architecture rtl of DE10_Nano_HDMI_TX is
 	signal logo_x_counter : natural range 0 to (logo_h_res -1);
 	signal logo_y_counter : natural range 0 to (logo_v_res -1);
 	
+	signal dot_x_sign : std_logic := '0';
+	signal dot_y_sign : std_logic := '0';
+	
 	signal pixel : std_logic_vector(data_width-1 downto 0);
 	
 	signal r_led : std_logic := '0';
@@ -103,6 +106,7 @@ begin
 	reset_n <= KEY(0);
 	HDMI_TX_CLK <= vpg_pclk;
 	
+	-- blink LED at frame clock
 	process (vpg_pclk, gen_clk_locked)
 	begin
 		if (gen_clk_locked = '0') then
@@ -114,9 +118,14 @@ begin
 		end if;
 	end process;
 	
+	-- LEDs for debug
 	LED(0) <= r_led;
+	LED(1) <= pixel_en;
+	LED(2) <= gen_clk_locked;
+	LED(3) <= dot_x_sign;
+	LED(4) <= dot_y_sign;
 
-	-- increment the dot at each new frame
+	-- update the sprite position at each new frame
 	process (vpg_pclk, gen_clk_locked)
 	begin
 		if (gen_clk_locked = '0') then
@@ -124,45 +133,62 @@ begin
 			dot_y_counter <= 0;
 		elsif (rising_edge(vpg_pclk)) then
 			if (new_frame = '1') then
-				-- x/y counter
+				-- Change x increment sign when touching border
 				if (dot_x_counter >= h_res - 96) then
-					dot_x_counter <= 0;
-					
-					if (dot_y_counter >= v_res - 96) then
-						dot_y_counter <= 0;
-					else
-						dot_y_counter <= dot_y_counter + 1;
-					end if;
-				else
+					dot_x_sign <= '1';
+				elsif (dot_x_counter <= 1) then
+					dot_x_sign <= '0';
+				end if;
+				
+				-- Same for y
+				if (dot_y_counter >= v_res - 96) then
+					dot_y_sign <= '1';
+				elsif (dot_y_counter <= 1) then
+					dot_y_sign <= '0';
+				end if;
+				
+				-- x/y counter
+				if (dot_x_sign = '0') then
 					dot_x_counter <= dot_x_counter + 1;
+				else
+					dot_x_counter <= dot_x_counter - 1;
+				end if;
+				
+				if (dot_y_sign = '0') then
+					dot_y_counter <= dot_y_counter + 1;
+				else
+					dot_y_counter <= dot_y_counter - 1;
 				end if;
 			end if;
 		end if;
 	end process;
 
+	-- x/y from hdmi generator to sprite address, asynchronous
 	process (x_counter, y_counter)
 	begin
-
-			if ((x_counter < 95) and (y_counter < 95)) then
-				pixel_address <= x_counter-dot_x_counter + (y_counter-dot_y_counter)*95;
-			else
-				pixel_address <= 0;
-			end if;
+		if (((x_counter > dot_x_counter) and (x_counter < dot_x_counter + 95)) and ((y_counter > dot_y_counter) and (y_counter < dot_y_counter + 95))) then
+			pixel_address <= x_counter-dot_x_counter + (y_counter-dot_y_counter)*95;
+		else
+			pixel_address <= 0;
+		end if;
 	end process;
 	
+	-- sprite memory pixel post-processing (adding color!)
+	-- displays black if current pixel is not on the sprite
 	process (pixel, x_counter, y_counter)
 	begin
 		if (((x_counter > dot_x_counter) and (x_counter < dot_x_counter + 95)) and ((y_counter > dot_y_counter) and (y_counter < dot_y_counter + 95))) then
-			if (pixel = x"3A") then
-				HDMI_TX_D <= x"A6184F";
-			else
+			if (pixel = x"FF") then
 				HDMI_TX_D <= x"FFFFFF";
+			else
+				HDMI_TX_D <= x"A6184F";
 			end if;
 		else
 			HDMI_TX_D <= (others => '0');
 		end if;
 	end process;
 	
+	-- Generates the clock required for HDMI
 	pll0 : component pll 
 		port map (
 			refclk => FPGA_CLK2_50,
@@ -170,7 +196,10 @@ begin
 			outclk_0 => vpg_pclk,
 			locked => gen_clk_locked
 		);
-		
+	
+	-- Generates the signals for HDMI IC
+	-- Gives an address for the frame buffer
+	-- Or x/y coordinates for the sprite generator
 	hdmi_generator0 : entity work.hdmi_generator 
 		port map (                                    
 			i_clk => vpg_pclk,
@@ -178,13 +207,14 @@ begin
 			o_hdmi_hs => HDMI_TX_HS,
 			o_hdmi_vs => HDMI_TX_VS,
 			o_hdmi_de => HDMI_TX_DE,
-			o_pixel_en => open,
+			o_pixel_en => pixel_en,
 			o_pixel_address => open,
 			o_x_counter => x_counter,
 			o_y_counter => y_counter,
 			o_new_frame => new_frame
 		);
 		
+	-- In this context, it stores the sprite : the ENSEA logo!
 	dpram_0 : entity work.dpram
 		generic map (
 			mem_size => mem_size,
@@ -204,6 +234,7 @@ begin
 			o_q_b    => pixel
 		);
 	
+	-- Configures the HDMI IC through I2C. It's verilog, thanks Terasic (but you don't want to see the code...)
 	I2C_HDMI_Config0 : component I2C_HDMI_Config 
 		port map (
 			iCLK => FPGA_CLK1_50,
