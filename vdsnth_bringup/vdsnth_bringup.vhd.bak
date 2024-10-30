@@ -1,0 +1,13 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity vdsnth_bringup is
+	port (
+	
+	);
+end entity vdsnth_bringup;
+
+architecture rtl of vdsnth_bringup is
+begin
+
+end architecture rtl;
